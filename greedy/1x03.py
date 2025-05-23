@@ -1,4 +1,4 @@
-# LeetCode 55 Jump Game
+# # LeetCode 55 Jump Game
 
 nums = [2,3,1,1,4]
 
@@ -15,7 +15,7 @@ for i in range(len(nums)):
 print(True)
 
 
-# 숫자 카드 게임 이것이 코딩테스트다. p96
+# # 숫자 카드 게임 이것이 코딩테스트다. p96
 
 n,m = map(int,input().split())
 
@@ -27,7 +27,7 @@ for i in range(n):
   res = max(res,min_value)
 print(res)
 
-# 백준 1149 수리공
+# # 백준 1149 수리공
 N,L = map(int,input().split())
 
 positions = list(map(int,input().split()))
@@ -44,4 +44,25 @@ for pos in positions:
   tape +=1
   covered = pos + (L -1)
 print(tape)
+
+
+# 백준 11047 동전
+n,k = map(int,input().split())
+coin_type = []
+for _ in range(n):
+  coin_type.append(int(input()))
+
+coin_type.reverse()
+
+count = 0
+
+for coin in coin_type:
+  coin_count = k // coin
+
+  count += coin_count
+
+  k -= coin * coin_count
+  
+print(count)
+
 
