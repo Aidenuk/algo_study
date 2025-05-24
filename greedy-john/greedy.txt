@@ -1,0 +1,105 @@
+
+Job	Deadline	Profit
+A	  4	        20
+B	  1	        10
+C	  1         40
+D	  1 	    30
+
+Step 1: Sort by profit(hight -> low)
+C(40), D(30), A(20), B(10)
+
+
+Step 2: Find time slots 
+Max deadline is 4 so we have slots: [_, _, _, _](0, 3)
+
+Now go through each job
+
+C (deadline 1) → try slot 1 → it's free → assign C to slot 0
+
+[C,_,_,_,_]
+
+D (deadline 1) → slot 1 is taken → skip
+[C,_,_,_,_]
+
+A (deadline 4) → try slot 4 → free → assign A to slot 3
+[C,_,_,_,A]
+
+B (deadline 1) → slot 1 taken → skip
+[C,_,_,_,A]
+
+Final scheduled jobs: C and A -> Profit = 40 + 20 = 60
+
+
+Abdul Bari 
+Job sequancing with deadlines
+Jobs            |J1|        [J2]        [J3]        [J4]        [J5]
+Profits         |20|        [15]        [10]        [ 5]        [ 1]
+Deadlines       |2 |        [ 2]        [ 1]        [ 3]        [ 3]
+
+Note: Each job only needs 1 unit of time!
+- When placing a job, we look for the latest free skit <= deadline
+- if slot is taken, we look backwards until we find a free one. 
+- if no free slot exists <= deadline, the job is skipped. 
+Formula: latest available slot <= slot [index, ex: slot 2]
+Available slots: [_, _, _]
+J1: 2nd slot [_, J1, _] = 20
+J2: skips as 2nd slot is already occupied
+J3: 1st slot [J3, J1, _] = 20 + 10
+J4: 3rd slot [J3, J1, J4] = 20 + 10 + 5
+J5: skips as 3rd slot is already occupied
+
+
+
+| Job | Profit | Deadline |
+| --- | ------ | -------- |
+| A   | 35     | 3        |
+| B   | 30     | 4        |
+| C   | 25     | 4        |
+| D   | 20     | 2        |
+| E   | 15     | 3        |
+| F   | 12     | 1        |
+| G   | 5      | 2        |
+
+Available slots: [-,-,-,-]
+A: [-, -, A, -] = 35
+B: [-, -, A, B] = 65
+C: [-, C, A, B] = 90
+D: [D, C, A, B] = 102
+E: [D, C, A, B] = skipped
+F: [D, C, A, B] = skipped
+G: [D, C, A, B] = skipped
+
+Total profit = 102
+Skipped jobs = E, F, G
+
+
+
+
+| Job | Profit | Deadline |
+| --- | ------ | -------- |
+| J1  | 100    | 2        |
+| J2  | 19     | 1        |
+| J3  | 27     | 2        |
+| J4  | 25     | 1        |
+| J5  | 15     | 3        |
+
+Sort by descending order
+
+| Job | Profit | Deadline |
+| --- | ------ | -------- |
+| J1  | 100    | 2        |
+| J3  | 27     | 2        |
+| J4  | 25     | 1        |
+| J2  | 19     | 1        |
+| J5  | 15     | 3        |
+
+Available slots: [-,-,-]
+J1: [-, J1, -] = 100
+J3: [J3, J1, -] = 127
+J4: [J3, J1, -] = skipped
+J2: [J3, J1, -] = skipped
+J5: [J3, J1, J5] = 142
+Total profit = 142
+Skipped jobs =  J4, J2
+
+
