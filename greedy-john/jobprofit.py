@@ -7,7 +7,6 @@
 
 
 
-
 def job_sequencing(jobs):
     total_profit = 0
     sorted_list = sorted(jobs, key=lambda x:x[2], reverse=True)
