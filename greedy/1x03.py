@@ -27,7 +27,7 @@ for i in range(n):
   res = max(res,min_value)
 print(res)
 
-# # 백준 1149 수리공
+# 백준 1149 수리공
 N,L = map(int,input().split())
 
 positions = list(map(int,input().split()))
