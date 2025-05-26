@@ -1,11 +1,11 @@
 from collections import deque
 
-def dfs(graph,start,visted):
-  visted[start] = True
+def dfs(graph,start,visited):
+  visited[start] = True
   print(start,end=" ")
   for i in graph[start]:
-    if not visted[i]:
-      dfs(graph,i,visted)
+    if not visited[i]:
+      dfs(graph,i,visited)
 
 def bfs(graph,start,visited):
   queue = deque([start])
