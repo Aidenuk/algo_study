@@ -1,0 +1,94 @@
+recursion implementation
+
+marked = [False] * G.size()
+
+def dfs(G, v):
+    visit(v)
+    marked[v] = True
+    for w in G.neighbors(v):
+        if not marked[w]:
+            dfs(G, w)
+
+
+
+
+
+Queue implementation
+
+marked = [False] * G.size()
+
+def dfs_iter(G, v):
+    stack = [v]
+    while len(stack) > 0:
+        v = stack.pop()
+        if not marked[v]:
+            visit(v)
+            marked[v] = True
+            for w in G.neighbors(v):
+                if not marked[w]:
+                    stack.append(w)
+
+
+
+Both functions above run in O(V + E)
+V -> number of vertices in a graph
+E -> number of edges 
+
+Recursive implementation is more standard implementation of DFS (Cleaner and easier to read)
+All above are preorder, meaning we output the vertex as part of the order as soon as we encounter new vertex. 
+Preorder traversals are the ones we initially visited, and PostOrder traversals are the ones that we meet on the way back. 
+PostOrder is added only when there is no other neighbors that needs to be discovered in that there.
+
+
+
+parent = {s: None}
+Note: inner loop
+dfs_visit(Adj, s):
+    for v in Adj[s]:
+        parent[v] = s
+        dfs_visit(Adj, v)
+
+
+Note: outer loop
+DFS(V, Adj):
+    parent = {}
+    for S in V:
+        if S not in parent:
+            parent[s] = None
+            dfs_visit(Adj, s)
+
+
+Analysis 
+Above dfs is linear time O(V+E). 
+
+
+given adjacency type of adj and array of bool called visited
+def dfs(s):
+    if (visited[s]) is not True:
+        visited[s] = True
+    for u in adj[s]:
+        dfs(u)
+
+
+forward edge -> goes Node to decsedent in tree
+backward edge -> goes Node to ancestors in tree
+cross edge -> rest of the edges are cross edge, between two non ancestor related nodes aka subtrees
+
+freeCodeCamp
+graph = nodes + edges 
+directed graph -> have specified direction, and its arrow A -> B -> C
+undirected graph -> no direction specified, A B C, its like a two way street where you can come and back to the same Node
+neighbors node is any node that are accessable through one edge, only unvisited Nodes are neighbors.
+
+Depth first traversal algorithm -> Explores one direction as much as possible before changing directions
+Breadth first traveral algorithm -> Exlores all the immidiate neighbors, Explores all directions evanly. 
+Depth first traversal uses Stack.(add to the top and remove from the top as well)
+Breadth first traversal uses Queue.(add to the back and remove from front)
+Difference between two algorithms is they give different order. 
+
+asyclic = no cycles 
+
+
+
+
+

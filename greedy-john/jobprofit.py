@@ -10,10 +10,8 @@
 def job_sequencing(jobs):
     total_profit = 0
     sorted_list = sorted(jobs, key=lambda x:x[2], reverse=True)
-    
     max_slots = max(jobs, key=lambda m:m[1])[1]
     time_slots = [None] * max_slots  
-
     for job in sorted_list:
         deadline = job[1]
         for slot in range(deadline - 1,-1, -1):
