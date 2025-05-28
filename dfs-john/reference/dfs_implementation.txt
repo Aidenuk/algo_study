@@ -1,13 +1,37 @@
+edges = {
+    "i": ["j", "k"],
+    "j": ["i"],
+    "k": ["i", "m", "l"],
+    "m": ["k"],
+    "l": ["k"],
+    "o": ["n"],
+    "n": ["o"]
+}
+
+
 recursion implementation
 
-marked = [False] * G.size()
-
 def dfs(G, v):
-    visit(v)
+    marked = [False] * G.size()
     marked[v] = True
     for w in G.neighbors(v):
         if not marked[w]:
             dfs(G, w)
+
+
+stack implementation
+
+def dfs(G, v):
+    marked = [False] * G.size() -> keep track in case of continues loop
+    stack = [v]
+
+    while stack:
+        current = stack.pop()
+        if not marked[current]:
+            marked[current] = True
+            for w in G.neighbors(current):
+                if not marked[w]:
+                    stack.append(w)
 
 
 
