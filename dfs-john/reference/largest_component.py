@@ -28,6 +28,8 @@ def exploreSize(graph, current, visited):
     visited.add(current)
     size = 1
     for neighbor in graph[current]:
+
+        print(f'current neighbor: {size}')
         size += exploreSize(graph, neighbor, visited)
 
     return size

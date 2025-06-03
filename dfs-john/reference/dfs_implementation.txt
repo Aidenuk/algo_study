@@ -1,3 +1,10 @@
+set complexity is 1
+set doesnt keep items sorted 
+set doesnt have index
+set doesnt keep duplicated items
+set item indexes always change so cant access item at some index
+
+
 edges = {
     "i": ["j", "k"],
     "j": ["i"],
