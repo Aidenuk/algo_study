@@ -20,6 +20,8 @@ def stack_dfs(graph,start):
 
   print(result)
 
+# The reason why reverse function is used that we care of the order otherwise it does not matter if we just search all node regradless of the order.
+
 # find a way to use recursive
 def recursive_dfs(graph,start):
   visited = set()
