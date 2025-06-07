@@ -30,7 +30,6 @@ def BFS(graph, i):
         current = queue.pop(0)
         result.append(current)
         visited[current] = True
-
         for neighbor in graph[current]:
             if visited[neighbor] == False:
                 visited[neighbor] = True

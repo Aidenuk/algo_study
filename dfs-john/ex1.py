@@ -46,9 +46,7 @@ def validPathStack(edges, source, dst, visited):
     for u, v in edges:
         graph[u].append(v)
         graph[v].append(u)
-
     visited.add(source)
-
     while(len(stack) > 0):
         current = stack.pop()
         if current  == dst: 

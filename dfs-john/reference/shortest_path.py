@@ -30,11 +30,11 @@ def edgeToGraph(edges):
 def shortestPath(edges, nodeA, nodeB):
     visited = set([nodeA])
     graph = edgeToGraph(edges)
-
     queue = deque([[nodeA, 0]])
     while(len(queue) > 0):
         node, distance = queue.popleft() 
-        if node == nodeB: return distance
+        if node == nodeB: 
+            return distance
         for neighbor in graph[node]:
             if neighbor not in visited:
                 visited.add(neighbor)
