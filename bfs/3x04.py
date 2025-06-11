@@ -82,4 +82,4 @@ dfs_result = dfs(graph, v)
 bfs_result = bfs(graph, v)
 
 print(' '.join(map(str, dfs_result)))
-print(' '.join
+print(' '.join(map(str, bfs_result)))

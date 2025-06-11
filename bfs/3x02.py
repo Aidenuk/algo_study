@@ -39,21 +39,3 @@ def deepestLeaveStack(root):
 
 
 
-def dfs_stack(root):
-  max_length = 0
-  level = {}
-  stack = [(root,1)]
-
-  while stack:
-    node,depth = stack.pop()
-    level[depth] = level.get(depth,0) + node.val
-    max_length = max(max_length,depth)
-
-    if node.left:
-      stack.append((node.left,depth+1))
-    if node.right:
-      stack.append((node.right,depth+1))
-  return level[max_length]
-
-
-

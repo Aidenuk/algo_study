@@ -30,4 +30,5 @@ class Solution:
             
             res.append(level)
         
-        return re
+        return res[::-1]
+        
