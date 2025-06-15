@@ -13,3 +13,8 @@ Defining binary tree:
     - has exactly 1 path between root and any node (unique path)
 
 Time complexity: T = O(n)
+
+graph allows cycle relationship
+rule: n - 1
+
+tree wont allow cycle relation ship
