@@ -35,6 +35,18 @@ def preorder(root):
   return res
 
 
+# 589 recursive way
+
+def preorder(self, root: 'Node') -> List[int]:
+        if not root:
+            return []
+        res = []
+        def dfs(node):
+            res.append(node.val)
+            for kid in node.children:
+                dfs(kid)
+        dfs(root)
+
 
 
 

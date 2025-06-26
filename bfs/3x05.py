@@ -25,5 +25,36 @@ def dfs(root):
   
   
 
+# 백준 2178
+
+def solve():
 
 
+  rows, cols = map(int,input().split())
+
+  graph = []
+
+  for i in range(rows):
+    graph.append(list(map(int,input())))
+
+  def bfs():
+    q = deque([(0,0,1)])
+    visited = [[False] * cols for _ in range(rows)]
+    visited[0][0] = True
+
+
+    while q:
+
+      dx,dy,dist = q.popleft()
+      if dx == rows-1 and dy == cols-1:
+        return dist
+      
+      for new_x,new_y in [[-1,0],[1,0],[0,-1],[0,1]]:
+        nx,ny = new_x + dx , new_y + dy
+
+        if 0 <= nx < rows and 0 <= ny < cols and graph[nx][ny] == 1 and not visited[nx][ny]:
+          visited[nx][ny] = True
+          q.append((nx,ny,dist+1))
+    return -1
+  return bfs()
+print(solve())
