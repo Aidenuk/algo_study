@@ -32,8 +32,8 @@ def countLeafNodesAfterRemoving(N, parents, to_delete):
 
 
 
-N = 5
-parents = [-1, 0, 0, 1, 1]
-delete = 2
+N = 9
+parents = [-1, 0, 0 ,2, 2, 4, 4, 6, 6]
+delete = 4
 print(countLeafNodesAfterRemoving(N, parents, delete)) 
 #outcome:2
