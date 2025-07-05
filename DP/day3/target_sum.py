@@ -20,3 +20,5 @@ def findTargetSumWays(nums, target):
     return count
 
 print(findTargetSumWays([1,1,1,1,1], 3))
+
+
