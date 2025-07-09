@@ -35,4 +35,8 @@ for i in range(1,n+1):
       print("INF",end=" ")
     else:
       print(graph[i][j],end=" ")
-  pri
+  print()
+
+
+
+
