@@ -7,29 +7,35 @@ import heapq
 
 
 def countPaths(n: int, roads: List[List[int]]) -> int:
-    edges = collections.defaultdict(list)
-    for u, v, w in roads:
-        edges[u].append((v, w))
-        edges[v].append((u, w))  
-    minHeap = [(0, 0)]
-    dist = [float('inf')] * n  
-    count = [0] * n       
-    dist[0] = 0
-    count[0] = 1 
-    while minHeap:
-        d1, n1 = heapq.heappop(minHeap)
-        if d1 > dist[n1]:
-            continue
-        for n2, d2 in edges[n1]:
-          new_dist = d1 + d2
-          if new_dist < dist[n2]:       
-              dist[n2] = new_dist
-              count[n2] = count[n1]   
-              heapq.heappush(minHeap, (new_dist, n2))
-          elif new_dist == dist[n2]:  
-              count[n2] += count[n1]     
+        MOD = 10 ** 9 + 7
 
-    return count[n-1]
+        edges = collections.defaultdict(list)
+        for u, v, w in roads:
+            edges[u].append((v, w))
+            edges[v].append((u, w))  
+        
+        minHeap = [(0, 0)]
+        dist = [float('inf')] * n  
+        count = [0] * n       
+        dist[0] = 0
+        count[0] = 1 
+        
+        while minHeap:
+            d1, n1 = heapq.heappop(minHeap)
+            if d1 > dist[n1]:
+                continue
+                
+            for n2, d2 in edges[n1]:
+                new_dist = d1 + d2
+                if new_dist < dist[n2]:       
+                    dist[n2] = new_dist
+                    count[n2] = count[n1]   
+                    heapq.heappush(minHeap, (new_dist, n2))
+                elif new_dist == dist[n2]:  
+                    count[n2] = (count[n2] + count[n1]) % MOD 
+        
+        return count[n-1] % MOD
+
 
 
 

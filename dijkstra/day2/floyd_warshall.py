@@ -20,7 +20,6 @@ class Solution:
                         dist[i][j] = dist[i][k] + dist[k][j]
         min_reachable = n  
         result_city = -1
-        
         for i in range(n):
             count = 0
             for j in range(n):
