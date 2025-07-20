@@ -33,6 +33,7 @@ def commonChars(words):
             result.append(char)
             for i in range(len(words)):
                 words[i] = words[i].replace(char, '', 1)
+            print(words)
     
     return result
 
